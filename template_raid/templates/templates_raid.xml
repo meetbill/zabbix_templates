@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2016-06-27T05:14:22Z</date>
+    <version>3.0</version>
+    <date>2016-06-28T01:19:31Z</date>
     <groups>
         <group>
-            <name>Qywp</name>
+            <name>store</name>
         </group>
     </groups>
     <templates>
@@ -14,7 +14,7 @@
             <description/>
             <groups>
                 <group>
-                    <name>Qywp</name>
+                    <name>store</name>
                 </group>
             </groups>
             <applications>
@@ -106,6 +106,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>OtherrError Count on $1</name>
@@ -149,6 +150,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                         <item_prototype>
                             <name>Predictive Error Count on $1</name>
@@ -192,6 +194,7 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <application_prototypes/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
@@ -203,6 +206,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template Raid:raid.phy.oec[{#DISK_ID}].last()}&gt;0</expression>
@@ -212,6 +216,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template Raid:raid.phy.pfc[{#DISK_ID}].last()}&gt;0</expression>
@@ -221,6 +226,7 @@
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <dependencies/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
