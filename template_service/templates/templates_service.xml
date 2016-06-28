@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-06-28T14:06:18Z</date>
+    <date>2016-06-28T14:43:20Z</date>
     <groups>
         <group>
             <name>store</name>
@@ -111,8 +111,8 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template service:service.[{#SERVER_NAME}].last()}=0</expression>
-                            <name>service Check [{#DISK_ID}]</name>
+                            <expression>{Template service:service.[{#SERVER_NAME}].last(#3)}=0</expression>
+                            <name>service Check [{#SERVER_NAME}]</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
