@@ -23,11 +23,11 @@ def discovery_service(server_array):
 
 def server_status(server_name):
     if server_name == 'xserver':
-        check=os.popen('ps -C java -o cmd|grep xserver|wc -l').readlines()
+        check=os.popen('ps -ef |grep -java           |grep xserver |grep -v grep |wc -l').readlines()
     elif server_name == 'xserver_guard':
-        check=os.popen('ps -ef |grep xserver_guard.py|grep -v grep |wc -l').readlines()
+        check=os.popen('ps -ef |grep xserver_guard.py|grep -v grep | wc -l').readlines()
     elif server_name == 'reifs':
-        check=os.popen('ps -C python -o cmd | grep reifs|wc -l').readlines()
+        check=os.popen('ps -ef |grep reifs           |grep -v grep | wc -l').readlines()
     else:
         check="  "  
     if check[0] < "1":
