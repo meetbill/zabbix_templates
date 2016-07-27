@@ -1,5 +1,5 @@
-mkdir -p /etc/zabbix/zabbix_agentd.conf.d/
-cp conf/service.conf /etc/zabbix/zabbix_agentd.conf.d/
+mkdir -p /etc/zabbix/zabbix_agentd.d/
+cp conf/service.conf /etc/zabbix/zabbix_agentd.d/
 mkdir -p /usr/lib/zabbix/externalscripts/
 cp conf/service.py /usr/lib/zabbix/externalscripts/
 chmod 777 /usr/lib/zabbix/externalscripts/service.py
@@ -9,10 +9,10 @@ then
 fi
 
 # UnsafeUserParameters=1
-CHECK=`grep "^Include=/etc/zabbix/zabbix_agentd.conf.d/" /etc/zabbix/zabbix_agentd.conf|wc -l`
+CHECK=`grep "^Include=/etc/zabbix/zabbix_agentd.d/" /etc/zabbix/zabbix_agentd.conf|wc -l`
 if [[ "w$CHECK" == "w0" ]]
 then
-    echo 'Include=/etc/zabbix/zabbix_agentd.conf.d/' >> /etc/zabbix/zabbix_agentd.conf
+    echo 'Include=/etc/zabbix/zabbix_agentd.d/' >> /etc/zabbix/zabbix_agentd.conf
 fi
 
 # UnsafeUserParameters=1
