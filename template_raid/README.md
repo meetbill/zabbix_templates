@@ -12,6 +12,13 @@ install中安装执行install.sh
 
 * 对要监控的机器关联templates模板
 
+## 检验
+
+在agent上查看检测到的硬盘标号
+```
+/usr/lib/zabbix/externalscripts/raid.py pd_discovery
+```
+
 ## 原理
 
 * install里面安装的程序是可以使agent采集到要监控的数据
