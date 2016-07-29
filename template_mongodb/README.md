@@ -40,10 +40,18 @@ pbinpaths = [
 (1)本程序默认设置AllowRoot=1，即允许使用root身份运行zabbix-agent
 
 若需要使用普通用户运行，则需要以下设置
+
+在sudoers中添加zabbix用户
 ```
 echo "zabbix ALL=(root) NOPASSWD:/bin/netstat" > /etc/sudoers.d/zabbix
 echo 'Defaults:zabbix   !requiretty'  >>  /etc/sudoers.d/zabbix
 chmod 600  /etc/sudoers.d/zabbix
+```
+更改/usr/lib/zabbix/externalscripts/mdb_sstat.py
+```
+
+将cmdstr = "netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq" % (binname)
+修改为:cmdstr = "sudo netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq" % (binname)
 ```
 
 (2)如果连接MongoDB需要账号密码，则需要配置端口、账号、密码的对应关系，配置文件路径如下：
