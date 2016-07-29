@@ -116,7 +116,7 @@ class MGdb(object):
         # zabbix ALL=(root) NOPASSWD:/bin/netstat
 
         binname = "mongod"
-        cmdstr = "sudo netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'" % (binname)
+        cmdstr = "sudo netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq" % (binname)
         disk_space_info = []
         (stdo_list, stde_list, retcode) = docmd(cmdstr, timeout=3, raw = False)
         
