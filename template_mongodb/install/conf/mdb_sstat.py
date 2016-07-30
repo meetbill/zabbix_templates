@@ -21,6 +21,7 @@ import types
 
 from qiueer.python.QLog import Log
 
+#{{{docmd
 def docmd(command,timeout=300, raw=False):
         '''
         功能：
@@ -65,8 +66,8 @@ def docmd(command,timeout=300, raw=False):
                 stde = [str.strip(line) for line in stde]
 
         return (stdo,stde,retcode)
-
-
+#}}}
+#{{{get_logstr
 def get_logstr(list_dict, max_key_len=16, join_str="\n"):
     log_str = ""
     for conf in list_dict:
@@ -74,7 +75,8 @@ def get_logstr(list_dict, max_key_len=16, join_str="\n"):
             log_str = log_str + str(key).ljust(max_key_len) + ": " + str(val) + join_str
     log_str = log_str.strip() # 去掉尾部 \n
     return log_str
-
+#}}}
+#{{{get_user_passwd_by_port
 def get_user_passwd_by_port(conffile, port):
     if os.path.exists(conffile) == False:
         return (None,None)
@@ -88,7 +90,8 @@ def get_user_passwd_by_port(conffile, port):
             if str(port) == ln_ary[0]:
                 return (ln_ary[1],ln_ary[2])
     return (None, None)
-
+#}}}
+#{{{MGdb
 class MGdb(object):
 
     
@@ -104,36 +107,38 @@ class MGdb(object):
         if not port:
             self._cache_file = "/tmp/zabbix_mongodb_cache.txt"
     
-        self._logger = Log(self._logpath,is_console=debug, mbs=5, count=5)
+        self._logger = Log(self._logpath,level="error",is_console=debug, mbs=5, count=5)
         
     def get_logger(self):
         return self._logger
 
-    def get_port_list(self):
+    def get_port_list(self,port_list=""):
         # sudo权限，必须授予
         # [root@localhost ~]# tail -n 2 /etc/sudoers
         # Defaults:zabbix   !requiretty 
         # zabbix ALL=(root) NOPASSWD:/bin/netstat
-
-        binname = "mongod"
-        cmdstr = "netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq" % (binname)
-        disk_space_info = []
-        (stdo_list, stde_list, retcode) = docmd(cmdstr, timeout=3, raw = False)
-        
-        log_da = [{"cmdstr": cmdstr},{"ret": retcode},{"stdo": "".join(stdo_list)}, {"stde": "".join(stde_list)}]
-        logstr = get_logstr(log_da, max_key_len=10)
-        
-        if retcode !=0:
-            self._logger.error(logstr)
-            return {}
-        else:
-            self._logger.info(logstr)
-            
         data = list()
-
-        for port in stdo_list:
-            port = int(str(port).strip())
-            data.append({"{#MONGODB_PORT}": port})
+        if port_list:
+            for port in port_list:
+                data.append({"{#MONGODB_PORT}": port})
+        else:
+            binname = "mongod"
+            cmdstr = "netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq" % (binname)
+            disk_space_info = []
+            (stdo_list, stde_list, retcode) = docmd(cmdstr, timeout=3, raw = False)
+            
+            log_da = [{"cmdstr": cmdstr},{"ret": retcode},{"stdo": "".join(stdo_list)}, {"stde": "".join(stde_list)}]
+            logstr = get_logstr(log_da, max_key_len=10)
+            
+            if retcode !=0:
+                self._logger.error(logstr)
+                return {}
+            else:
+                self._logger.info(logstr)
+                
+            for port in stdo_list:
+                port = int(str(port).strip())
+                data.append({"{#MONGODB_PORT}": port})
         import json
         return json.dumps({'data': data}, sort_keys=True, indent=7, separators=(",",":"))
     
@@ -235,10 +240,11 @@ class MGdb(object):
         resobj = self._get_result()
         print json.dumps(resobj, indent=4)
 
+#}}}
     
 
 def main():
-
+#{{{usage
     usage = "usage: %prog [options]\n Fetch mongodb status"
     parser = OptionParser(usage)
     
@@ -290,7 +296,7 @@ def main():
     parser.add_option("-a", "--all",  
                       action="store_true",dest="all", default=False,  
                       help="output all info")
-    
+#}}}
     (options, args) = parser.parse_args()
     if 1 >= len(sys.argv):
         parser.print_help()
@@ -309,8 +315,9 @@ def main():
 
     monitor_obj = MGdb(iphost=hostname, port=port, username=username, password=password, debug=options.debug, force=options.force)
     
+    port_list=[27017]
     if options.is_list == True:
-        print monitor_obj.get_port_list()
+        print monitor_obj.get_port_list(port_list)
         return
     
     if options.all == True:

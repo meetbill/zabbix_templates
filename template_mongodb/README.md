@@ -61,4 +61,18 @@ chmod 600  /etc/sudoers.d/zabbix
 内容如下：
 27017 test xxxxx
 
-(3)本检测程序也可以自动检测多实例mongodb,即agent机器上跑着多个mongodb实例
+(3)程序默认为只汇报指定端口mongodb
+
+旧版程序每次检测时会通过netstat  -nlpt | grep '%s' | awk '{print $4}'|awk -F: '{print $2}'|uniq 进行检测所有实例的mongodb端口
+
+即可以自动检测多实例mongodb,即agent机器上跑着多个mongodb实例
+
+某些机器的机器数连接过多的时候，会导致程序执行超时，故默认为手动进行配置需要监控的mongodb的端口
+
+修改方式如下：
+
+/usr/lib/zabbix/externalscripts/mdb_sstat.py
+
+```
+port_list=[27017]
+```
