@@ -169,6 +169,7 @@ class MGdb(object):
                     return resobj
             
             pbinpaths = [
+                         "/usr/local/mongodb/bin/mongo",
                          "/opt/mongodb/bin/mongo",
                          "/home/mongodb/mongodb/bin/mongo",
             ]
