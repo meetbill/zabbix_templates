@@ -196,7 +196,7 @@ class MGdb(object):
                 self._logger.info(logstr)
             
             stdo_str = "".join(stdo_list)
-            stdo_str = stdo_str.replace("NumberLong(", "").replace(")", "").replace("ISODate(", "")
+            stdo_str = stdo_str.replace("NumberLong(", "").replace(")","").replace("ISODate(","").replace("ObjectId(","")
             #print stdo_str
             resobj = json.loads(stdo_str)
             now_unixtime = int(time.time())
