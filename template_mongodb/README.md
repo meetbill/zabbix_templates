@@ -1,6 +1,6 @@
 ## 说明
 
-template_raid
+template_mongodb
 
 **agent**
 

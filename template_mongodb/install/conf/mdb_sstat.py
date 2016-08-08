@@ -315,7 +315,10 @@ def main():
         #print "Get (username=%s,password=%s) From Config File By port:%s" % (username, password, port)
 
     monitor_obj = MGdb(iphost=hostname, port=port, username=username, password=password, debug=options.debug, force=options.force)
-    
+
+
+
+    #################start
     port_list=[27017]
     if options.is_list == True:
         print monitor_obj.get_port_list(port_list)
