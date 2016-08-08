@@ -248,9 +248,10 @@ class Redis(object):
         cmdstr = None
         for bp in pbinpaths:
             if os.path.exists(bp):
-                cmdstr = "%s -h 127.0.0.1 -p %s info | grep '%s' " % (bp,port, key)
                 if password:
                     cmdstr = "%s -h 127.0.0.1 -a %s -p %s info | grep '%s' " % (bp,password, port, key)
+                else:
+                    cmdstr = "%s -h 127.0.0.1 -p %s info | grep '%s' " % (bp,port, key)
                 break
         if not cmdstr:
             print "the redis-cli not find"

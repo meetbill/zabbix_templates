@@ -176,9 +176,10 @@ class MGdb(object):
             cmdstr = None
             for bp in pbinpaths:
                 if os.path.exists(bp):
-                    cmdstr = "echo 'db.serverStatus()' | %s admin --host '%s'  --port %s --quiet" % (bp, hostname, port)
                     if username and password:
                         cmdstr = "echo 'db.serverStatus()' | %s admin --host '%s'  --port %s -u %s -p %s --quiet" % (bp, hostname, port, username, password)
+                    else:
+                        cmdstr = "echo 'db.serverStatus()' | %s admin --host '%s'  --port %s --quiet" % (bp, hostname, port)
                     break
             if not cmdstr:
                 print "the mongo not find"
