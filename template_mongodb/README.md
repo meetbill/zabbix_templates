@@ -76,3 +76,10 @@ chmod 600  /etc/sudoers.d/zabbix
 ```
 port_list=[27017]
 ```
+
+## 说明
+
+> * 检测时间：2m
+> * history保留时间：7d
+> * trend保留时间：365d
+

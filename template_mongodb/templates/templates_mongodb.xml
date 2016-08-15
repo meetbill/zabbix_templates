@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-07-29T01:01:47Z</date>
+    <date>2016-08-15T11:30:55Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -71,9 +71,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},connections.available]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -115,9 +115,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},connections.current]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -159,9 +159,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},connections.totalCreated]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -203,9 +203,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},globalLock.currentQueue.readers]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -247,9 +247,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},globalLock.currentQueue.total]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -291,9 +291,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},globalLock.currentQueue.writers]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -335,9 +335,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},indexCounters.accesses]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -379,9 +379,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},indexCounters.hits]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -423,9 +423,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},indexCounters.misses]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -467,9 +467,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},indexCounters.missRatio]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -511,9 +511,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},indexCounters.resets]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -555,9 +555,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},mem.mapped]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -599,9 +599,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},mem.resident]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -643,9 +643,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},mem.virtual]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -687,9 +687,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.document.deleted]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -731,9 +731,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.document.inserted]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -775,9 +775,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.document.returned]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -819,9 +819,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.document.updated]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -863,9 +863,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.queryExecutor.scannedObjects]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -907,9 +907,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.queryExecutor.scanned]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -951,9 +951,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.record.moves]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -995,9 +995,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.repl.buffer.count]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -1039,9 +1039,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.repl.buffer.maxSizeBytes]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -1083,9 +1083,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},metrics.repl.buffer.sizeBytes]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -1127,9 +1127,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},network.bytesIn]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -1171,9 +1171,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},network.bytesOut]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
@@ -1215,9 +1215,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.command]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1259,9 +1259,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.delete]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1303,9 +1303,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.getmore]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1347,9 +1347,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.insert]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1391,9 +1391,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.query]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1435,9 +1435,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcounters.update]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1479,9 +1479,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.command]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1523,9 +1523,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.delete]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1567,9 +1567,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.getmore]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1611,9 +1611,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.insert]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1655,9 +1655,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.query]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
@@ -1699,9 +1699,9 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>mongodb.status[{#MONGODB_PORT},opcountersRepl.update]</key>
-                            <delay>60</delay>
-                            <history>60</history>
-                            <trends>60</trends>
+                            <delay>120</delay>
+                            <history>7</history>
+                            <trends>365</trends>
                             <status>0</status>
                             <value_type>0</value_type>
                             <allowed_hosts/>
