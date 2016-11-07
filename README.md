@@ -1,3 +1,7 @@
+
+* [zabbix_templates](#zabbix_templates)
+	* [参加步骤](#参加步骤)
+
 # zabbix_templates
 zabbix常用模板
 

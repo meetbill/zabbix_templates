@@ -1,6 +1,8 @@
 ## 说明
 
-template_raid
+template_service_old
+
+使用低层次自动发现，因为需要在agent上设置环节，相对来说不好管理
 
 **agent**
 
