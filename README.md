@@ -1,8 +1,7 @@
-
-* [zabbix_templates](#zabbix_templates)
-	* [参加步骤](#参加步骤)
-
 # zabbix_templates
+
+## 简介
+
 zabbix常用模板
 
 1.需要导入xxx.xml模板文件。
@@ -18,6 +17,18 @@ zabbix template 分为以下3类
 + 系统层OS
 
 + 应用层App
+
+## 模板
+
+硬件层
+
+> * [raid](template_raid/)
+
+应用层
+
+> * [mysql](./template_mysql/)
+> * [redis](./template_redis/)
+> * [mongodb](./template_mongodb/)
 
 ## 参加步骤
 * 在 GitHub 上 `fork` 到自己的仓库，然后 `clone` 到本地，并设置用户信息。
