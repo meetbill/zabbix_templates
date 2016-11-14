@@ -24,6 +24,10 @@ zabbix template 分为以下3类
 
 > * [raid](template_raid/)
 
+系统层
+
+> * [Mylinux](./template_mylinux/)
+
 应用层
 
 > * [mysql](./template_mysql/)
