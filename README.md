@@ -1,5 +1,10 @@
 # zabbix_templates
 
+* [简介](#简介)
+* [模板](#模板)
+* [相关项目](#相关项目)
+* [参加步骤](#参加步骤)
+
 ## 简介
 
 zabbix常用模板
@@ -33,6 +38,12 @@ zabbix template 分为以下3类
 > * [mysql](./template_mysql/)
 > * [redis](./template_redis/)
 > * [mongodb](./template_mongodb/)
+
+## 相关项目
+
+> * zabbix安装-------------------------------------------------[zabbix_install](https://github.com/BillWang139967/zabbix_install)
+> * zabbix报警工具---------------------------------------------[zabbix_alert](https://github.com/BillWang139967/zabbix_alert)
+> * zabbix管理工具---------------------------------------------[zabbix_manager](https://github.com/BillWang139967/zabbix_manager)
 
 ## 参加步骤
 * 在 GitHub 上 `fork` 到自己的仓库，然后 `clone` 到本地，并设置用户信息。
