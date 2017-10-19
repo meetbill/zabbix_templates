@@ -1,4 +1,12 @@
 ## elasticsearch 监控
+<!-- vim-markdown-toc GFM -->
+* [1 原理](#1-原理)
+* [2 操作方法](#2-操作方法)
+* [3 相关](#3-相关)
+
+<!-- vim-markdown-toc -->
+
+## 1 原理
 查看 es 集群健康状态
 
 ```
@@ -25,8 +33,16 @@ curl -sXGET 'http://localhost:9200/_cluster/health?pretty'
 ```
 curl -s -XGET "http://localhost:9200/_cluster/health?pretty" | grep "status"|awk -F '[ "]+' '{print $4}'|grep -c 'green'
 ```
+## 2 操作方法
 
-## 相关
+```
+python check_es.py status
+```
+* green 返回 0
+* yellow 返回 1
+* red/无法请求到结果/超时 返回 2
+
+## 3 相关
 
 使用此程序时，假如系统无响应时无法返回结果，可通过以下链接方法避免
 
