@@ -1,51 +1,50 @@
 # zabbix_templates
+<!-- vim-markdown-toc GFM -->
+* [1 简介](#1-简介)
+* [2 模板](#2-模板)
+    * [2.1 硬件层](#21-硬件层)
+    * [2.2 系统层](#22-系统层)
+    * [2.3 应用层](#23-应用层)
+* [3 相关项目](#3-相关项目)
+* [4 参加步骤](#4-参加步骤)
 
-* [简介](#简介)
-* [模板](#模板)
-* [相关项目](#相关项目)
-* [参加步骤](#参加步骤)
+<!-- vim-markdown-toc -->
 
-## 简介
+ 
+## 1 简介
 
-zabbix常用模板
+zabbix 常用模板
 
-1.需要导入xxx.xml模板文件。
+1. 需要导入 xxx.xml 模板文件。
 
-2.在被监控机上部署收集数据的程序
+2. 在被监控机上部署收集数据的程序
 
-这里主要汇总了一些在使用zabbix过程中经常用的监控模板。
+这里主要汇总了一些在使用 zabbix 过程中经常用的监控模板。
 
-zabbix template 分为以下3类
+## 2 模板
 
-+ 硬件层
-
-+ 系统层OS
-
-+ 应用层App
-
-## 模板
-
-硬件层
+### 2.1 硬件层
 
 > * [raid](template_raid/)
 
-系统层
+### 2.2 系统层
 
 > * [Mylinux](./template_mylinux/)
 
-应用层
+### 2.3 应用层
 
 > * [mysql](./template_mysql/)
 > * [redis](./template_redis/)
 > * [mongodb](./template_mongodb/)
+> * [es](./template_elasticsearch/)
 
-## 相关项目
+## 3 相关项目
 
-> * zabbix安装-------------------------------------------------[zabbix_install](https://github.com/BillWang139967/zabbix_install)
-> * zabbix报警工具---------------------------------------------[zabbix_alert](https://github.com/BillWang139967/zabbix_alert)
-> * zabbix管理工具---------------------------------------------[zabbix_manager](https://github.com/BillWang139967/zabbix_manager)
+> * zabbix 安装 -------------------------------------------------[zabbix_install](https://github.com/BillWang139967/zabbix_install)
+> * zabbix 报警工具 ---------------------------------------------[zabbix_alert](https://github.com/BillWang139967/zabbix_alert)
+> * zabbix 管理工具 ---------------------------------------------[zabbix_manager](https://github.com/BillWang139967/zabbix_manager)
 
-## 参加步骤
+## 4 参加步骤
 * 在 GitHub 上 `fork` 到自己的仓库，然后 `clone` 到本地，并设置用户信息。
 ```
 $ git clone https://github.com/BillWang139967/zabbix_templates.git
