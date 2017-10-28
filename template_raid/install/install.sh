@@ -35,6 +35,5 @@ if [[ "w$CHECK" == "w0" ]]
 then
     sed -ri '/AllowRoot=0/a AllowRoot=1' /etc/zabbix/zabbix_agentd.conf
 fi
-cd ./linux/
-rpm -ivh Lib_Utils-1.00-09.noarch.rpm  MegaCli-8.00.48-1.i386.rpm
+rpm -ivh ./linux/MegaCli-8.07.14-1.noarch.rpm
 /etc/init.d/zabbix-agent restart

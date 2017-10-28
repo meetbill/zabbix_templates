@@ -1,6 +1,15 @@
-## 说明
+##  template_redis
+<!-- vim-markdown-toc GFM -->
+* [1 安装](#1-安装)
+* [2 检验](#2-检验)
+* [3 原理](#3-原理)
+* [4 运维修改](#4-运维修改)
+* [5 说明](#5-说明)
 
-template_redis
+<!-- vim-markdown-toc -->
+
+## 1 安装
+
 
 **agent**
 
@@ -22,7 +31,7 @@ pbinpaths = [
 
 * 对要监控的机器关联templates模板
 
-## 检验
+## 2 检验
 
 获取本机器redis端口
 ```
@@ -33,12 +42,12 @@ pbinpaths = [
 /usr/lib/zabbix/externalscripts/redis.py -p 6379 -k used_memory
 ```
 
-## 原理
+## 3 原理
 
 * install里面安装的程序是可以使agent采集到要监控的数据
 * templates中包括了要监控机器要监控的指标及报警条件，导入后关联要监控的主机即可
 
-## 运维修改
+## 4 运维修改
 
 (1)本程序默认设置AllowRoot=1，即允许使用root身份运行zabbix-agent
 
@@ -69,7 +78,7 @@ chmod 600  /etc/sudoers.d/zabbix
 port_list=[6379]
 ```
 
-## 说明
+## 5 说明
 
 > * 检测时间：1m
 > * history保留时间：14d
