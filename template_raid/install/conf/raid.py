@@ -16,6 +16,7 @@ import json
 
 MEGACLI_EXEC = '/opt/MegaRAID/MegaCli/MegaCli64'
 LIST_DISK_OPT = '-PDList -aALL -NoLog'
+LIST_LDDISK_OPT = '-LDInfo -Lall -aALL -NoLog'
 
 SLOT_NUMBER = 'Slot Number'
 DEVICE_ID = 'Device Id'
@@ -70,6 +71,20 @@ def _make_disk_dict(mega_output):
 
             disk_dict_all[dev_id]=device_dict
     return disk_dict_all
+def _make_lddisk_dict(mega_output):
+    ld_dict_all = {}
+    for line in _line_generator(mega_output):
+        if line.startswith("Virtual Drive"):
+            ld_id = _get_value(line).split(' ')[0]
+        elif line.startswith("State"):
+            ld_state = _get_value(line)
+
+            ld_dict = {}
+            ld_dict["ld_id"] = ld_id
+            ld_dict["ld_state"] = ld_state
+
+            ld_dict_all[ld_id]=ld_dict
+    return ld_dict_all
 def _get_disk_dict():
     _check_megacli(MEGACLI_EXEC)
     (status, output) = commands.getstatusoutput('%s %s' % (MEGACLI_EXEC, LIST_DISK_OPT))
@@ -79,10 +94,20 @@ def _get_disk_dict():
     #print output
     disk_dict = _make_disk_dict(output)
     return disk_dict
+def _get_ld_dict():
+    _check_megacli(MEGACLI_EXEC)
+    (status, output) = commands.getstatusoutput('%s %s' % (MEGACLI_EXEC, LIST_LDDISK_OPT))
+    if status != 0:
+        print 'Exec MegaCLI failed, please check the log.'
+        sys.exit(1)
+    #print output
+    ld_dict_all = _make_lddisk_dict(output)
+    return ld_dict_all
 def pd_discovery():
     """
     discovery_physical_disk
     """
+    disk_dict_all = _get_disk_dict()
     array = []
     for dev_id in disk_dict_all:
         disk = {}
@@ -91,18 +116,53 @@ def pd_discovery():
         array.append(disk)
     return json.dumps({'data': array}, indent=4, separators=(',',':'))
 def media_error_count(disk_id):
+    disk_dict_all = _get_disk_dict()
     try:
         return disk_dict_all[disk_id]["mec"]
     except:
         return '-1'
 def other_error_count(disk_id):
+    disk_dict_all = _get_disk_dict()
     try:
         return disk_dict_all[disk_id]["oec"]
     except:
         return '-1'
 def predictive_error_count(disk_id):
+    disk_dict_all = _get_disk_dict()
     try:
         return disk_dict_all[disk_id]["pfc"]
+    except:
+        return '-1'
+def fw_state(disk_id):
+    disk_dict_all = _get_disk_dict()
+    try:
+        fw = disk_dict_all[disk_id]["fw_state"]
+        if fw == "Unconfigured(bad)" or fw.startswith("Failed"):
+            return 0
+        else:
+            return 1
+    except:
+        return '-1'
+
+def ld_discovery():
+    """
+    discovery_logical_disk
+    """
+    ld_dict_all = _get_ld_dict()
+    array = []
+    for ld_id in ld_dict_all:
+        disk = {}
+        disk['{#LD_ID}'] = ld_dict_all[ld_id]["ld_id"]
+        array.append(disk)
+    return json.dumps({'data': array}, indent=4, separators=(',',':'))
+def ld_state(ld_id):
+    ld_dict_all = _get_ld_dict()
+    try:
+        ldstatus = ld_dict_all[ld_id]["ld_state"]
+        if ldstatus == "Optimal":
+            return 1
+        else:
+            return 0
     except:
         return '-1'
 
@@ -120,7 +180,6 @@ if __name__ == '__main__':
                     print sys.argv[0], k, str(v.func_code.co_varnames[:v.func_code.co_argcount])[1:-1].replace(",", "")
         sys.exit(-1)
     else:
-        disk_dict_all = _get_disk_dict()
         func = eval(sys.argv[1])
         args = sys.argv[2:]
         try:

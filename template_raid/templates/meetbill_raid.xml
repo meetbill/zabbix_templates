@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-06-28T01:19:31Z</date>
+    <date>2017-11-04T09:38:17Z</date>
     <groups>
         <group>
-            <name>store</name>
+            <name>meetbill</name>
         </group>
     </groups>
     <templates>
@@ -14,7 +14,7 @@
             <description/>
             <groups>
                 <group>
-                    <name>store</name>
+                    <name>meetbill</name>
                 </group>
             </groups>
             <applications>
@@ -25,12 +25,12 @@
             <items/>
             <discovery_rules>
                 <discovery_rule>
-                    <name>Physical Disk Discovery</name>
+                    <name>Logical Disk Discovery</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>raid.phy.discovery</key>
-                    <delay>30</delay>
+                    <key>raid.ld.discovery</key>
+                    <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
                     <snmpv3_contextname/>
@@ -65,14 +65,158 @@
                     <description/>
                     <item_prototypes>
                         <item_prototype>
+                            <name>Logical disk state on $1</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>raid.ld.state[{#LD_ID}]</key>
+                            <delay>60</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>MegaRAID</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template Raid:raid.ld.state[{#LD_ID}].last(#3)}=0</expression>
+                            <name>Logical Disk State Check on [{#LD_ID}]</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <dependencies/>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes/>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Physical Disk Discovery</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>raid.phy.discovery</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#DISK_ID}</macro>
+                                <value/>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Physical disks Fw State on $1</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>raid.phy.fw_state[{#DISK_ID}]</key>
+                            <delay>60</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>MegaRAID</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <application_prototypes/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Media Error Count on $1</name>
                             <type>0</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>raid.phy.mec[{#DISK_ID}]</key>
-                            <delay>300</delay>
-                            <history>90</history>
+                            <delay>120</delay>
+                            <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
@@ -115,8 +259,8 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>raid.phy.oec[{#DISK_ID}]</key>
-                            <delay>300</delay>
-                            <history>90</history>
+                            <delay>120</delay>
+                            <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
@@ -159,8 +303,8 @@
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>raid.phy.pfc[{#DISK_ID}]</key>
-                            <delay>300</delay>
-                            <history>90</history>
+                            <delay>120</delay>
+                            <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
@@ -199,31 +343,41 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template Raid:raid.phy.mec[{#DISK_ID}].last()}&gt;0</expression>
+                            <expression>{Template Raid:raid.phy.mec[{#DISK_ID}].last(#3)}&gt;30</expression>
                             <name>Media Error Count Check [{#DISK_ID}]</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Raid:raid.phy.oec[{#DISK_ID}].last()}&gt;0</expression>
+                            <expression>{Template Raid:raid.phy.oec[{#DISK_ID}].last(#3)}&gt;1000</expression>
                             <name>Other Error Count Check {#DISK_ID}</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Raid:raid.phy.pfc[{#DISK_ID}].last()}&gt;0</expression>
+                            <expression>{Template Raid:raid.phy.fw_state[{#DISK_ID}].last(,3)}=0</expression>
+                            <name>Physical disks fw state  Check {#DISK_ID}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                            <dependencies/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template Raid:raid.phy.pfc[{#DISK_ID}].last(#3)}&gt;2</expression>
                             <name>Predictive Error Count  Check {#DISK_ID}</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
                             <dependencies/>
