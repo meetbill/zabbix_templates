@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.0</version>
-    <date>2016-06-28T14:43:20Z</date>
+    <date>2018-01-24T05:59:37Z</date>
     <groups>
         <group>
-            <name>store</name>
+            <name>Templates</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>Template service</template>
-            <name>Template service</name>
+            <template>service</template>
+            <name>service</name>
             <description/>
             <groups>
                 <group>
-                    <name>store</name>
+                    <name>Templates</name>
                 </group>
             </groups>
             <applications>
@@ -26,7 +26,7 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>service Discovery</name>
-                    <type>0</type>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
                     <key>service.discovery</key>
@@ -61,18 +61,18 @@
                             </condition>
                         </conditions>
                     </filter>
-                    <lifetime>30</lifetime>
+                    <lifetime>5</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
                             <name>server $1 status</name>
-                            <type>0</type>
+                            <type>7</type>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>service.[{#SERVER_NAME}]</key>
                             <delay>60</delay>
-                            <history>30</history>
+                            <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
                             <value_type>3</value_type>
@@ -111,7 +111,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template service:service.[{#SERVER_NAME}].last(#3)}=0</expression>
+                            <expression>{service:service.[{#SERVER_NAME}].last(#3)}&lt;&gt;0</expression>
                             <name>service Check [{#SERVER_NAME}]</name>
                             <url/>
                             <status>0</status>

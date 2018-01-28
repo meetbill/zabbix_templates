@@ -37,6 +37,7 @@ zabbix 常用模板
 > * [redis](./template_redis/)
 > * [mongodb](./template_mongodb/)
 > * [es](./template_elasticsearch/)
+> * [service](./template_service/)
 
 ## 3 相关项目
 
