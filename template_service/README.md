@@ -9,6 +9,9 @@
     * [2.2 应用监控信息](#22-应用监控信息)
 * [3 原理](#3-原理)
 * [4 程序说明](#4-程序说明)
+* [5 二次开发](#5-二次开发)
+    * [5.1 修改模板](#51-修改模板)
+    * [5.2 agent 采集程序](#52-agent-采集程序)
 
 <!-- vim-markdown-toc -->
 
@@ -78,3 +81,16 @@ service.py discovery                    # 输出程序中数组中的服务
 service.py discovery_file 'config_file' # 输出配置文件中中的服务，配置文件中将服务依次进行编写即可
 service.py server_status 'server_name'  # 获取服务状态
 ```
+## 5 二次开发
+
+### 5.1 修改模板
+
+> * 模板名(Template name)，如 service 修改为 s3
+> * 应用名(Application)a，如 service 修改为 s3
+> * 发现规则(Discovery rules)，如 service.discovery 修改为 s3.discovery,当然 Name 部分也修改下
+> * 监控项原型的 Name 和 Key
+> * 触发器原型的 Name
+
+### 5.2 agent 采集程序
+
+编写对应的 discovery 以及不同服务返回的状态
